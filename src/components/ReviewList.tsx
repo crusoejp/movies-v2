@@ -7,6 +7,7 @@ interface Props {
   reviews: ReviewType[];
 }
 
+// ReviewList component is basically just a div with a map of Review components
 const ReviewList: FC<Props> = ({ reviews }) => {
   return (
     <Box my="15px">

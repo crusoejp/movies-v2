@@ -20,6 +20,7 @@ interface Props {
   refetchMovies: () => void;
 }
 
+// I created movie modal to allow the user to click on a movie card from movie list and see more details and leave a review without having to create new page.
 const MovieModal: FC<Props> = ({ movie, isOpen, setOpen, refetchMovies }) => {
   return (
     <Modal isOpen={isOpen} onClose={() => setOpen(false)}>

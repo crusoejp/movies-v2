@@ -5,8 +5,12 @@ import { MovieType } from "../componentUtils";
 import NewMovieModal from "./NewMovieModal";
 
 const MovieList = () => {
+  // controls the movies shown in movielist
   const [movieList, setMovieList] = useState<MovieType[]>([]);
+  // controls the visibility of the new movie modal
   const [open, setOpen] = useState<boolean>(false);
+
+  // fetch movies from the mock api
   const getMovies = async () => {
     const response = await fetch(
       "https://65ff9523df565f1a6145219c.mockapi.io/movies/movie"

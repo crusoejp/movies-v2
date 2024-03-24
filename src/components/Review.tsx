@@ -7,6 +7,7 @@ interface Props {
   review: ReviewType;
 }
 
+// handing movie.review down to the Review component
 const Review: FC<Props> = ({ review }) => {
   return (
     <Flex flexDir="column" gap="10px">

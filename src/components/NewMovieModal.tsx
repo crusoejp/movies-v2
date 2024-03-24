@@ -17,7 +17,10 @@ interface Props {
   refetchMovies: () => void;
 }
 
+// I created this component to allow adding a new movie
 const NewMovieModal: FC<Props> = ({ open, setOpen, refetchMovies }) => {
+  // in typescript, you can specific the type of the state, in this case, a string
+  // this prevents the user from accidentally setting it to a number or anything like that
   const [title, setTitle] = useState<string>("");
   const [director, setDirector] = useState<string>("");
   const [year, setYear] = useState<string>("");
@@ -25,6 +28,7 @@ const NewMovieModal: FC<Props> = ({ open, setOpen, refetchMovies }) => {
 
   const handleSubmit = async () => {
     if (title.length > 0 && director.length > 0 && year.length > 0) {
+      // making a post to create the new movie
       const response = await fetch(
         "https://65ff9523df565f1a6145219c.mockapi.io/movies/movie",
         {
@@ -41,6 +45,7 @@ const NewMovieModal: FC<Props> = ({ open, setOpen, refetchMovies }) => {
         }
       );
 
+      // if it goes thru, reset and refetch
       if (response.ok) {
         refetchMovies();
         setTitle("");
@@ -50,11 +55,13 @@ const NewMovieModal: FC<Props> = ({ open, setOpen, refetchMovies }) => {
         setOpen(false);
       }
     } else {
+      // alerting if the user didn't fill out all the fields
       alert("Please fill out all fields.");
     }
   };
   return (
     <Modal isOpen={open} onClose={() => setOpen(false)}>
+      {/* Modal is a component from chakra that prestyles divs to create the modal effect */}
       <ModalOverlay />
       <ModalContent>
         <ModalHeader>New Movie</ModalHeader>

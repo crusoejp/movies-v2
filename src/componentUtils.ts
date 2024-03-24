@@ -12,3 +12,5 @@ export interface MovieType {
   poster: string;
   reviews: ReviewType[];
 }
+
+// IF YOU'RE READING THIS, YOU'VE FOUND MY UTILS FILE WHERE I DEFINED A COUPLE OF INTERFACES THAT I NEED TO USE ACROSS THE COMPONENTS.
